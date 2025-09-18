@@ -1,0 +1,32 @@
+package com.ciberfarma.app;
+
+import com.ciberfarma.model.Producto;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class Demo03 {
+
+	public static void main(String[] args) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("mysql");
+		EntityManager em = emf.createEntityManager();
+		
+		String codigo = "P001";
+		Producto prod = em.find(Producto.class, codigo);
+		
+		if(prod != null) {
+			
+			System.out.println("Producto encontrado");
+			System.out.println(prod);
+		} else {
+		
+			System.out.println("no encontrado");
+		}
+		
+		em.clear();
+		emf.close();
+	}
+
+}

@@ -1,7 +1,9 @@
 package com.ciberfarma.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,9 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "tb_productos")
 public class Producto {
 
 	@Id
+	@Column(length = 4)
 	private String id_prod;
 	private String des_prod;
 	private int stk_prod;
