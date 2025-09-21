@@ -17,12 +17,12 @@ public class Demo01 {
 			
 			Producto p = new Producto();
 			
-			p.setId_prod("P001");
-			p.setDes_prod("Producto ejemplo");
-			p.setStk_prod(80);
-			p.setPre_prod(12.50);
-			p.setIdcategoria(3);
-			p.setIdproveedor(3);
+			p.setId_prod("P002");
+			p.setDes_prod("Producto ejemplo 2");
+			p.setStk_prod(66);
+			p.setPre_prod(08.50);
+			p.setIdcategoria(1);
+			p.setIdproveedor(1);
 			//p.setEst_prod(0);
 			
 			em.getTransaction().begin();;

@@ -1,5 +1,7 @@
 package com.ciberfarma.app;
 
+import java.util.List;
+
 import com.ciberfarma.model.Producto;
 
 import jakarta.persistence.EntityManager;
@@ -15,10 +17,20 @@ public class Demo06 {
 		
 		String jpql = "SELECT p FROM Producto p";
 		
-		System.out.println(jpql);
+		List<Producto> lstProductos = em.createQuery(jpql, Producto.class).getResultList();
+		
+		System.out.println("\n==== Listado de Productos ====\n");
+		for(Producto p : lstProductos) {
+			
+			System.out.println("Codigo: \t" + p.getId_prod());
+			System.out.println("Producto: \t" + p.getDes_prod());
+			System.out.println("Categoria: \t" + p.getCategoria().getDescripcion());
+			System.out.println("Stock: \t\t" + p.getStk_prod());
+			System.out.println("proveedor: \t" + p.getId_prod());
+			System.out.println("\n=============================== \n");
+		}
 		
 		em.clear();
 		emf.close();
 	}
-
 }
