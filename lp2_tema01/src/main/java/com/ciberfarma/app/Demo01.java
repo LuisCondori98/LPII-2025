@@ -17,8 +17,8 @@ public class Demo01 {
 			
 			Producto p = new Producto();
 			
-			p.setId_prod("P003");
-			p.setDes_prod("Producto ejemplo 3");
+			p.setId_prod("P001");
+			p.setDes_prod("Producto ejemplo");
 			p.setStk_prod(80);
 			p.setPre_prod(12.50);
 			p.setIdcategoria(3);
