@@ -20,23 +20,14 @@ public class Demo04 {
 			
 			if(prod != null) {
 				
-				System.out.println("Producto encontrado");
-				System.out.println(prod);
+				prod.setDes_prod("");
 				
-				prod.setDes_prod("cambio descripcion");
-				prod.setPre_prod(99.9);
-				prod.setStk_prod(55);
-				
-				
-				em.getTransaction().begin();
-				em.merge(prod);
+				em.getTransaction().begin();;
+				em.persist(prod);
 				em.getTransaction().commit();
-				
-				System.out.println("Producto actualizado");
-			} else {
-			
-				System.out.println("Producto no encontrado");
 			}
+			
+			System.out.println("");
 			
 		} catch(Exception e) {
 			

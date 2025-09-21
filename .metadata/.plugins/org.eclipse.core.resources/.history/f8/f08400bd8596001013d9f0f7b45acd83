@@ -23,7 +23,7 @@ public class Demo04 {
 				System.out.println("Producto encontrado");
 				System.out.println(prod);
 				
-				prod.setDes_prod("cambio descripcion");
+				prod.setDes_prod("");
 				prod.setPre_prod(99.9);
 				prod.setStk_prod(55);
 				
