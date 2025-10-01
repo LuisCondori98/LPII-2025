@@ -218,7 +218,7 @@ public class FrmManteProd extends JFrame {
 		
 		List<Producto> lstProductos = em.createQuery(jpql, Producto.class).getResultList();
 		
-		txtSalida.setText("==== Listado de Productos ====\n");
+		txtSalida.setText("==== Listado de Productos FAKE ====\n");
 		for(Producto p : lstProductos) {
 			
 			imprimir("\nCodigo: \t" + p.getId_prod());
