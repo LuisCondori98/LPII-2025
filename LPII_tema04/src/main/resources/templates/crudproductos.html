@@ -40,7 +40,7 @@
 					<label for="inputCat">Categoría</label> 
 					<select id="inputCat" class="form-control" >
 						<option value="-1">Seleccione...</option>
-						
+						<option th:each="c : ${lstCategorias}" value="-1">Seleccione...</option>						
 					</select>
 					
 				</div>
