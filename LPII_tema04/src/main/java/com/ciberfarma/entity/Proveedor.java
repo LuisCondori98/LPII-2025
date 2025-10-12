@@ -7,10 +7,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tb_categorias")
-public class Categoria {
+@Table(name = "tb_proveedor")
+public class Proveedor {
 
 	@Id
-	private Integer idcategoria;
-	private String descripcion;
+	private Integer idproveedor;
+	private String nombre_rs;
+	private String telefono;
+	private String email;
 }
