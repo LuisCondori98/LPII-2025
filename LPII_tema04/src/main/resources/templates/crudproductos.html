@@ -10,35 +10,41 @@
 		<div class="row">
 				<div class="col-6 col-sm-4">
 		<h1>Mantenimiento de Productos</h1>
-		<form action="/grabar" method="post" th:object="${producto}">
+		<form action="/productos/grabar" method="post" th:object="${producto}">
 			
 			<div class="form-group">
 				<label for="inputCod">Código</label> 
 				<input type="text" 
-					class="form-control" id="inputCod" th:value="'P00' + ${cantidad + 1}" th:field="*{id_prod}" placeholder="Código">
+					class="form-control" id="inputCod" th:field="*{id_prod}" placeholder="Código">
 			</div>
 			<div class="form-group">
 				<label for="inputNom">Nombre</label> 
 				<input type="text" 
 					class="form-control" id="inputNom"
+					th:field="*{des_prod}"
 					placeholder="Nombre" name="des_prod">
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputStk">Stock</label> 
 					<input type="number" 
-						class="form-control" name="stk_prod" id="inputStk" placeholder="0">
+						class="form-control"
+						th:field="*{stk_prod}"
+						name="stk_prod" id="inputStk" placeholder="0">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPrec">Precio</label> 
 					<input type="number" step="0.01"  
-						class="form-control" id="inputPrec" name="pre_prod" placeholder="0.00">
+						class="form-control"
+						th:field="*{pre_prod}"
+						id="inputPrec" name="pre_prod" placeholder="0.00">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-4">
 				    <label for="inputCat">Categoría</label> 
-				    <select id="inputCat" class="form-control" name="idcategoria">
+				    <select id="inputCat"
+							class="form-control" name="idcategoria">
 				        <option value="">Seleccione...</option>
 				        <option th:each="c : ${lstCategorias}" 
 				                th:value="${c.idcategoria}"
@@ -80,6 +86,7 @@
 							<th>Precio</th>
 							<th>Estado</th>
 							<th>Categoria</th>
+							<th>Acciones</th>
 							<!--<th>Proveedor</th>-->
 						</tr>
 					</thead>
@@ -93,6 +100,8 @@
 							<td th:text="${p.est_prod}"></td>
 							<td th:text="${p.categoria.descripcion}"></td>
 							<!--<td th:text="${p.idproveedor}"></td>-->
+							<td><a th:href="@{/productos/editar/}+${p.id_prod}"
+									class="btn btn-success">Editar</a></td>
 						</tr>
 					</tbody>
 				</table>

@@ -5,9 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ciberfarma.entity.Producto;
 import com.ciberfarma.repository.ICategoriaRepository;
@@ -39,7 +42,35 @@ public class ProductoController {
 	@PostMapping("/grabar")
 	public String crearProducto(Model m, @ModelAttribute Producto producto) {
 
-		productoRepository.save(producto);
+		try {
+			
+			productoRepository.save(producto);
+		} catch(Exception e) {
+			
+		}
+		
+		/*m.addAttribute("lstCategorias", categoriaRepository.findAll());
+		m.addAttribute("lstProductos", productoRepository.findAll());*/
+		
+		return "redirect:/productos";
+	}
+	
+	@GetMapping("/editar/{id_prod}")
+	public String editarProducto(@PathVariable String id_prod, Model m) {
+		
+		Producto p = productoRepository.findById(id_prod).get();
+		
+		m.addAttribute("lstCategorias", categoriaRepository.findAll());
+		m.addAttribute("lstProductos", productoRepository.findAll());
+		m.addAttribute("lstProveedores", proveedorRepository.findAll());
+		m.addAttribute("producto", p);
+		
+		return "crudproductos";
+	}
+	
+	@PutMapping("/actualizar")
+	public String actualizarProductor(Model model) {
+	
 		
 		
 		return "crudproductos";
